@@ -2,6 +2,34 @@
 
 <h1 class="mt-4 text-center">Welcome to Eco Finds</h1>
 
+<!-- Search + Cart Row -->
+<div class="row justify-content-between align-items-center mt-4 mb-3">
+  <!-- Search -->
+  <div class="col-md-6">
+    <form action="/products/search" method="GET" class="d-flex">
+      <input 
+        type="text" 
+        name="q" 
+        class="form-control me-2" 
+        placeholder="Search for products..."
+        value="<%= typeof query !== 'undefined' ? query : '' %>"
+      >
+      <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+  </div>
+
+  <!-- Cart -->
+  <div class="col-md-3 text-end">
+    <a href="/cart" class="btn btn-primary">
+      🛒 Cart 
+      <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>
+        <span class="badge bg-light text-dark"><%= cartCount %></span>
+      <% } %>
+    </a>
+  </div>
+</div>
+
+<!-- Listings Grid -->
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
   <% if (listings.length === 0) { %>
     <div class="col-12 text-center">
