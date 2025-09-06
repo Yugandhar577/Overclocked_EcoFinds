@@ -11,10 +11,7 @@
     <% listings.forEach(listing => { %>
       <div class="col mb-4">
         <div class="card h-100 shadow-sm">
-          <img 
-            src="<%= listing.images_url && listing.images_url.length > 0 ? listing.images_url[0] : '/images/no_upload.jpeg' %>" 
-            class="card-img-top" 
-            alt="<%= listing.title %>">
+          <img src="<%= listing.images %>" alt="<%= listing.title %>" style="max-width: 300px;" class="card-img-top mx-auto mt-3">
           <div class="card-body">
             <a href="/listings/<%= listing.id %>"><h5 class="card-title"><%= listing.title %></h5></a>
             <p class="card-text"><%= listing.description %></p>
