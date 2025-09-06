@@ -1,20 +1,16 @@
-<!-- views/listings/new.ejs -->
-<%- include('../includes/navbar') %>
+<% layout('layouts/boilerplate') %>
 
 <div style="max-width: 600px; margin: 20px auto; font-family: Arial, sans-serif;">
-    <!-- Back Button -->
-    <a href="/products" style="text-decoration: none; margin-bottom: 10px; display: inline-block;">← Back</a>
+    <a href="/listings" style="text-decoration: none; margin-bottom: 10px; display: inline-block;">← Back</a>
 
-    <!-- Screen Title -->
-    <h1>Add New Product</h1>
+    <h1>Add New Listing</h1>
 
-    <!-- Add Product Form -->
-    <form action="/products/new" method="POST" style="display: flex; flex-direction: column; gap: 10px;" enctype="multipart/form-data">
+    <form action="/listings" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
         <!-- Product Title -->
-        <label for="title">Product Title:</label>
+        <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
 
-        <!-- Category Dropdown -->
+        <!-- Category -->
         <label for="category">Category:</label>
         <select id="category" name="category" required>
             <option value="">-- Select Category --</option>
@@ -27,16 +23,15 @@
 
         <!-- Description -->
         <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" placeholder="Enter product description"></textarea>
+        <textarea id="description" name="description" rows="4" placeholder="Enter description" required></textarea>
 
         <!-- Price -->
         <label for="price">Price (₹):</label>
         <input type="number" id="price" name="price" min="0" step="0.01" required>
 
-        <!-- Add Image Button (Placeholder) -->
-        <label for="images_url">Product Image URL:</label>
-        <input type="text" id="images_url" name="images_url" placeholder="Enter image URL">
-        <button type="button" onclick="alert('Image upload functionality not implemented yet')">+ Add Image (Placeholder)</button>
+        <!-- Image URL -->
+        <label for="images">Image URL:</label>
+        <input type="text" id="images" name="images" placeholder="Enter image URL">
 
         <!-- Submit -->
         <button type="submit" style="margin-top: 15px; padding: 10px; background-color: #8000ff9c; color: white; border: none; cursor: pointer;">
@@ -44,5 +39,3 @@
         </button>
     </form>
 </div>
-
-<%- include('../includes/footer') %>

@@ -14,7 +14,8 @@ const User = require('./models/users');
 // Routes
 const authRoutes = require('./routes/auth');
 const cartRoutes = require('./routes/cart');
-const productRoutes = require('./routes/products');
+const listingsRoutes = require('./routes/listings');
+const checkoutRoutes = require('./routes/checkout');
 
 // ---------------- MongoDB Connection ----------------
 main().then(() => {
@@ -44,12 +45,19 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
 }));
 
-// ---------------- Routes ----------------
+// ---------------- Use Routes ----------------
 app.use("/auth", authRoutes);
 app.use("/cart", cartRoutes);
-app.use("/products", productRoutes);
+app.use("/listings", listingsRoutes);
+app.use("/checkout", checkoutRoutes);
+
+// ---------------- Home Route ----------------
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 // ---------------- Server ----------------
 app.listen(8080, () => {
     console.log("Server is listening on port 8080");
 });
+module.exports = app;

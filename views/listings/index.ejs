@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') %>
+
+<h1 class="mt-4 text-center">Welcome to Eco Finds</h1>
+
+<!-- Search + Cart Row -->
+<div class="row justify-content-between align-items-center mt-4 mb-3">
+  <!-- Search -->
+  <div class="col-md-6">
+    <form action="/products/search" method="GET" class="d-flex">
+      <input 
+        type="text" 
+        name="q" 
+        class="form-control me-2" 
+        placeholder="Search for products..."
+        value="<%= typeof query !== 'undefined' ? query : '' %>"
+      >
+      <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+  </div>
+
+  <!-- Cart -->
+  <div class="col-md-3 text-end">
+    <a href="/cart" class="btn btn-primary">
+      🛒 Cart 
+      <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>
+        <span class="badge bg-light text-dark"><%= cartCount %></span>
+      <% } %>
+    </a>
+  </div>
+</div>
+
+<!-- Listings Grid -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+  <% if (listings.length === 0) { %>
+    <div class="col-12 text-center">
+      <p class="text-muted">No listings available at the moment.</p>
+    </div>
+  <% } else { %>
+    <% listings.forEach(listing => { %>
+      <div class="col mb-4">
+        <div class="card h-100 shadow-sm">
+          <img 
+            src="<%= listing.images_url && listing.images_url.length > 0 ? listing.images_url[0] : '/images/no_upload.jpeg' %>" 
+            class="card-img-top" 
+            alt="<%= listing.title %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= listing.title %></h5>
+            <p class="card-text"><%= listing.description %></p>
+          </div>
+          <div class="card-footer">
+            <p class="mb-0"><strong>₹<%= listing.price %></strong></p>
+            <p class="mb-0 text-muted">Condition: <%= listing.condition %></p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>

@@ -48,7 +48,7 @@ app.post("/signup", async (req, res) => {
         // Start session
         req.session.userId = user._id;
 
-        res.redirect("/dashboard");
+        res.redirect("/listings/index");
     } catch (error) {
         console.error("Error signing up:", error);
         res.status(500).send("Internal Server Error");
