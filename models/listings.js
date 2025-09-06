@@ -15,10 +15,10 @@ const ProductSchema = new mongoose.Schema({
   category: { type: String, required: true },
   images_url: { 
     type: String, 
-    default: "C:\\Users\\Yugandhar Paulbudhe\\Desktop\\fullstack_project\\Models\\Default.jpeg",
+    default: "C:\\Users\\Yugandhar Paulbudhe\\Desktop\\Overclocked_EcoFinds\\public\\images\\no_upload.jpeg",
     set: function(v) {
       return v === "" 
-        ? "C:\\Users\\Yugandhar Paulbudhe\\Desktop\\fullstack_project\\Models\\Default.jpeg" 
+        ? "C:\\Users\\Yugandhar Paulbudhe\\Desktop\\Overclocked_EcoFinds\\public\\images\\no_upload.jpeg" 
         : v;
     }
   },
