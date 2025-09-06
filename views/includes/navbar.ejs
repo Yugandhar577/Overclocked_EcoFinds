@@ -20,15 +20,16 @@
       </ul>
 
       <!-- 🔍 Search Bar (inside collapse, aligns right) -->
-      <form action="/products/search" method="GET" class="d-flex me-3" role="search">
+      <form action="/listings/search" method="GET" class="d-flex me-3" role="search">
         <input 
           type="text" 
-          name="q" 
+          name="query" 
           class="form-control me-2" 
-          placeholder="Search products..."
+          placeholder="Search listings..."
           value="<%= typeof query !== 'undefined' ? query : '' %>">
         <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
+
     </div>
 
     <!-- Always visible (non-collapsible) -->
@@ -70,3 +71,4 @@
     </div>
   </div>
 </nav>
+
