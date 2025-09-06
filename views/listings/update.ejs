@@ -1,0 +1,55 @@
+<!-- views/listings/edit.ejs -->
+<%- include('../includes/navbar') %>
+
+<div style="max-width: 600px; margin: 20px auto; font-family: Arial, sans-serif;">
+    <!-- Back Button -->
+    <a href="/products/<%= listing._id %>" style="text-decoration: none; margin-bottom: 10px; display: inline-block;">← Back to Product</a>
+
+    <!-- Screen Title -->
+    <h1>Edit Product</h1>
+
+    <!-- Edit Product Form -->
+    <form action="/products/<%= listing._id %>/edit" method="POST" style="display: flex; flex-direction: column; gap: 10px;" enctype="multipart/form-data">
+        <!-- Product Title -->
+        <label for="name">Product Title:</label>
+        <input type="text" id="name" name="name" value="<%= listing.name %>" required>
+
+        <!-- Category Dropdown -->
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="">-- Select Category --</option>
+            <option value="Electronics" <%= listing.category === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+            <option value="Clothing" <%= listing.category === 'Clothing' ? 'selected' : '' %>>Clothing</option>
+            <option value="Home Appliances" <%= listing.category === 'Home Appliances' ? 'selected' : '' %>>Home Appliances</option>
+            <option value="Books" <%= listing.category === 'Books' ? 'selected' : '' %>>Books</option>
+            <option value="Others" <%= listing.category === 'Others' ? 'selected' : '' %>>Others</option>
+        </select>
+
+        <!-- Description -->
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required><%= listing.description %></textarea>
+
+        <!-- Price -->
+        <label for="price">Price (₹):</label>
+        <input type="number" id="price" name="price" min="0" step="0.01" value="<%= listing.price %>" required>
+
+        <!-- Image URL (placeholder for now) -->
+        <label for="image">Product Image URL:</label>
+        <input type="text" id="image" name="image" value="<%= listing.image %>">
+        <button type="button" onclick="alert('Image upload functionality not implemented yet')">+ Add/Change Image (Placeholder)</button>
+
+        <!-- Submit -->
+        <button type="submit" style="margin-top: 15px; padding: 10px; background-color: #8000ff9c; color: white; border: none; cursor: pointer;">
+            Update Listing
+        </button>
+    </form>
+
+    <!-- Delete Listing -->
+    <form action="/products/<%= listing._id %>/delete" method="POST" style="margin-top: 20px;">
+        <button type="submit" style="padding: 10px; background-color: red; color: white; border: none; cursor: pointer;">
+            Delete Listing
+        </button>
+    </form>
+</div>
+
+<%- include('../includes/footer') %>
