@@ -31,7 +31,7 @@ app.get("/listings/:id", async (req, res) => {
 // -------------------- CREATE -------------------- //
 
 // Form (GET /listings/new)
-app.get("/listings/new", (req, res) => {
+app.get("/new", (req, res) => {
     res.render("listings/new");
 });
 
@@ -62,7 +62,7 @@ app.post("/listings", async (req, res) => {
 // -------------------- UPDATE -------------------- //
 
 // Edit form
-app.get("/listings/:id/edit", async (req, res) => {
+app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;
     try {
         const listing = await Listing.findById(id);
@@ -95,7 +95,7 @@ app.post("/listings/:id/edit", async (req, res) => {
 
 // -------------------- DELETE -------------------- //
 
-app.post("/listings/:id/delete", async (req, res) => {
+app.post(":id/delete", async (req, res) => {
     const { id } = req.params;
     try {
         await Listing.findByIdAndDelete(id);
@@ -148,13 +148,6 @@ app.get("/search", async (req, res) => {
 
 app.get("/myListings", async (req, res) => {
     try {
-        // Assuming req.user._id holds the logged-in user’s ID (e.g., from Passport.js)
-        const userId = req.user ? req.user._id : null;
-
-        if (!userId) {
-            return res.redirect("/login"); // redirect to login if not logged in
-        }
-
         const myListings = await Listing.find({ createdBy: userId });
         res.render("listings/myListings", { listings: myListings });
     } catch (err) {
