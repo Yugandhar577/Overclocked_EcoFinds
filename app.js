@@ -5,6 +5,9 @@
     const path = require('path');
     const methodOverride = require('method-override');
     const ejsMate = require('ejs-mate');
+    const session = require("express-session");
+    const MongoStore = require("connect-mongo");
+    const User = require("./Models/User"); 
 
     main().then(() =>{
         console.log("Connected to MongoDB");
@@ -23,6 +26,7 @@
     app.engine("ejs", ejsMate);
     app.use(express.static(path.join(__dirname, 'public')));
 
+<<<<<<< HEAD
     // login 
     app.get("/", async (req, res) => {
         try {
@@ -32,6 +36,20 @@
             console.error("Error fetching users:", error);
             res.status(500).send("Internal Server Error");
         }
+=======
+    app.use(session({
+    secret: "ecoFindsSecretKey", // in production, use process.env.SESSION_SECRET
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/FullStackAIRBNB" }), 
+    cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
+    }));
+
+
+
+    app.get("/", (req, res) => {
+        res.send("Hello from Express");
+>>>>>>> 48015d4c0354453b610ff4276244de24b22b7eb9
     });
 
 
