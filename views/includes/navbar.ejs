@@ -19,38 +19,22 @@
         <li class="nav-item"><a class="nav-link" href="/listings/new">Add Products</a></li>
         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
       </ul>
-
-      <!-- 🔍 Search Bar (inside collapse, aligns right) -->
-      <form action="/products/search" method="GET" class="d-flex me-3">
-        <input 
-          type="text" 
-          name="q" 
-          class="form-control me-2" 
-          placeholder="Search products..."
-          value="<%= typeof query !== 'undefined' ? query : '' %>">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
     </div>
 
     <!-- Always visible (non-collapsible) -->
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-left">
       <!-- Wishlist -->
-      <a class="nav-link text-white position-relative me-3" href="/wishlist">
+      <a class="nav-link text-white me-3" href="/wishlist">
         <i class="bi bi-heart-fill fs-5"></i>
       </a>
 
-      <!-- Cart with badge -->
-      <a class="nav-link text-white position-relative me-3" href="/cart">
+      <!-- Cart -->
+      <a class="nav-link text-white me-3" href="/cart">
         <i class="bi bi-cart-fill fs-5"></i>
-        <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            <%= cartCount %>
-          </span>
-        <% } %>
       </a>
 
       <% if (typeof user !== 'undefined' && user) { %>
-        <!-- Profile Dropdown -->
+        <!-- Profile -->
         <div class="dropdown me-3">
           <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" 
              id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
