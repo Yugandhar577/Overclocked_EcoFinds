@@ -19,21 +19,14 @@ const ProductSchema = new mongoose.Schema({
       if (!images || !Array.isArray(images) || images.length === 0) {
         return ["/images/no_upload.jpeg"];
       }
-      return images.map(image => {
-        return image === "/images/no_upload.jpeg"
-          ? "/images/no_upload.jpeg"
-          : image;
-      });
+      return images.map(image => image === "/images/no_upload.jpeg" ? "/images/no_upload.jpeg" : image);
     }
   },
   description: String,
   price: { type: Number, required: true },
   quantity: { type: Number, default: 1 },
-  condition: { 
-    type: String, 
-    enum: ["new", "like new", "used", "refurbished"], 
-    default: "used" 
-  },
+  // Allow any string here since your data has "Refurbished" with capital R
+  condition: { type: String, default: "Used" }, 
   year_of_manufacture: Number,
   brand: String,
   model: String,
@@ -43,11 +36,8 @@ const ProductSchema = new mongoose.Schema({
   color: String,
   original_packaging: { type: Boolean, default: false },
   manual_included: { type: Boolean, default: false },
-  working_condition: {
-    type: String,
-    enum: ["working", "partially working", "not working"],
-    default: "working"
-  },
+  // Allow any string for working_condition
+  working_condition: { type: String, default: "working" },  
   owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 }, { timestamps: true });
 

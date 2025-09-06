@@ -1,11 +1,11 @@
 const express = require("express");
-const router = express.Router();
+const app = express();
 const Listing = require("../models/listings");
 
 // -------------------- READ -------------------- //
 
 // All products
-router.get("/", async (req, res) => {
+app.get("/", async (req, res) => {
     try {
         const listings = await Listing.find({});
         res.render("listings/index", { listings });
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // Show single product
-router.get("/:id", async (req, res) => {
+app.get("/:id", async (req, res) => {
     const { id } = req.params;
     try {
         const listing = await Listing.findById(id);
@@ -31,12 +31,12 @@ router.get("/:id", async (req, res) => {
 // -------------------- CREATE -------------------- //
 
 // Form to create new product
-router.get("/new", (req, res) => {
+app.get("/new", (req, res) => {
     res.render("listings/new");
 });
 
 // Handle creation
-router.post("/new", async (req, res) => {
+app.post("/new", async (req, res) => {
     const { name, description, price, image } = req.body;
 
     if (!name || !description || !price) {
@@ -56,7 +56,7 @@ router.post("/new", async (req, res) => {
 // -------------------- UPDATE -------------------- //
 
 // Form to edit product
-router.get("/:id/edit", async (req, res) => {
+app.get("/:id/edit", async (req, res) => {
     const { id } = req.params;
     try {
         const listing = await Listing.findById(id);
@@ -69,7 +69,7 @@ router.get("/:id/edit", async (req, res) => {
 });
 
 // Handle update
-router.post("/:id/edit", async (req, res) => {
+app.post("/:id/edit", async (req, res) => {
     const { id } = req.params;
     const { name, description, price, image } = req.body;
 
@@ -89,7 +89,7 @@ router.post("/:id/edit", async (req, res) => {
 
 // -------------------- DELETE -------------------- //
 
-router.post("/:id/delete", async (req, res) => {
+app.post("/:id/delete", async (req, res) => {
     const { id } = req.params;
     try {
         await Listing.findByIdAndDelete(id);
@@ -100,4 +100,4 @@ router.post("/:id/delete", async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = app;

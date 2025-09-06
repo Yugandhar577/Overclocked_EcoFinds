@@ -808,4 +808,4 @@ const products = [
     working_condition: "Lightly used, good condition"
   }
 ]
-module.exports = { data: products};
+module.exports = { data: products };

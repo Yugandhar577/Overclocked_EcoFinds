@@ -1,9 +1,9 @@
 const express = require("express");
-const router = express.Router();
+const app = express();
 const Listing = require("../models/listings");
 
 // GET checkout page
-router.get("/", async (req, res) => {
+app.get("/", async (req, res) => {
     try {
         if (!req.session.cart || req.session.cart.length === 0) {
             return res.redirect("/cart");
@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST checkout (process purchase)
-router.post("/", (req, res) => {
+app.post("/", (req, res) => {
     try {
         if (!req.session.cart || req.session.cart.length === 0) {
             return res.redirect("/cart");
@@ -47,4 +47,4 @@ router.post("/", (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = app;

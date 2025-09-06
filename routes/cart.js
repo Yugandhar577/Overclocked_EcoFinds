@@ -1,9 +1,9 @@
 const express = require("express");
-const router = express.Router();
+const app = express();
 const Listing = require("../models/listings");
 
 // View cart
-router.get("/", async (req, res) => {
+app.get("/", async (req, res) => {
     try {
         // Initialize cart if not present
         if (!req.session.cart) req.session.cart = [];
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 // Add item to cart
-router.post("/add/:id", async (req, res) => {
+app.post("/add/:id", async (req, res) => {
     const { id } = req.params;
     try {
         const item = await Listing.findById(id);
@@ -41,7 +41,7 @@ router.post("/add/:id", async (req, res) => {
 });
 
 // Remove item from cart
-router.post("/remove/:id", (req, res) => {
+app.post("/remove/:id", (req, res) => {
     const { id } = req.params;
 
     if (!req.session.cart) req.session.cart = [];
@@ -52,4 +52,4 @@ router.post("/remove/:id", (req, res) => {
     res.redirect("/cart");
 });
 
-module.exports = router;
+module.exports = app;

@@ -1,24 +1,24 @@
 const express = require("express");
-const router = express.Router();
+const app = express();
 const bcrypt = require("bcrypt");
 const User = require("../models/users");
 
 // -------------------- GET ROUTES -------------------- //
 
 // Render login page
-router.get("/login", (req, res) => {
+app.get("/login", (req, res) => {
     res.render("auth/login"); 
 });
 
 // Render signup page
-router.get("/signup", (req, res) => {
+app.get("/signup", (req, res) => {
     res.render("auth/signUp");
 });
 
 // -------------------- POST ROUTES -------------------- //
 
 // Handle signup
-router.post("/signup", async (req, res) => {
+app.post("/signup", async (req, res) => {
     const { name, userId, email, password } = req.body;
 
     if (!name || !userId || !email || !password) {
@@ -56,7 +56,7 @@ router.post("/signup", async (req, res) => {
 });
 
 // Handle login
-router.post("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     const { loginId, password } = req.body; // loginId can be email or userId
 
     if (!loginId || !password) {
@@ -86,14 +86,14 @@ router.post("/login", async (req, res) => {
 });
 
 // Handle logout
-router.get("/logout", (req, res) => {
+app.get("/logout", (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.error("Error logging out:", err);
             return res.status(500).send("Could not log out");
         }
-        res.redirect("/login");
+        res.redirect("/auth/login");
     });
 });
 
-module.exports = router;
+module.exports = app;
