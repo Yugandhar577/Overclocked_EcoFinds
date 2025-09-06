@@ -88,3 +88,11 @@ app.post("/login", async (req, res) => {
 app.get("/logout", (req, res) => {
     req.session.destroy((err) => {
         if (err) {
+            console.error("Error logging out:", err);
+            return res.status(500).send("Could not log out");
+        }
+        res.redirect("/auth/login");
+    });
+});
+
+module.exports = app;
