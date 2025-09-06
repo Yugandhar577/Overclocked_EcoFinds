@@ -25,7 +25,7 @@
 
 
     app.get("/", (req, res) => {
-        res.redirect("/listings");
+        res.send("Hello from Express");
     });
 
 
@@ -36,6 +36,6 @@
 
 
 
-    app.listen(7070, () => {
-    console.log("server is listening to port 7070");
+    app.listen(8080, () => {
+    console.log("server is listening to port 8080");
     });
