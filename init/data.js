@@ -25,7 +25,7 @@ const products = [
   {
     title: "Dell XPS 13 Laptop",
     category: "Electronics",
-    images_url:["https://www.techradar.com/computing/windows-laptops/dell-xps-13-intel-core-ultra-2nd-gen-2025-review"],
+    images_url:["hhttps://cdn.mos.cms.futurecdn.net/kMkWVRBsjVw3MnbxBUM9pj-1920-80.jpg.webpttps://www.techradar.com/computing/windows-laptops/dell-xps-13-intel-core-ultra-2nd-gen-2025-review"],
     description: "Dell XPS 13, Intel i5/i7, 8GB RAM, 256GB SSD. 13.3' display, slim, lightweight, Windows 11. Light scratches, battery replaced if older.",
     price: 45000,
     quantity: 8,
@@ -63,7 +63,7 @@ const products = [
   {
     title: "Restaurant Grade Espresso Machine",
     category: "Business & Industrial",
-    images_url:["https://imgs.search.brave.com/qVegytNOWMmxQS7LMy9FOIuCsexcvmqKhDaQREYukOg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFpZktjMDd2SUwu/anBn"],
+    images_url:["https://m.media-amazon.com/images/I/71pm5UidpUL._AC_SX679_.jpg"],
     description: "2-group head, semi-automatic. Serviced, includes portafilter and accessories.",
     price: 35000,
     quantity: 11,
@@ -82,7 +82,7 @@ const products = [
   {
     title: "Dyson V11 Vacuum Cleaner",
     category: "Home & Garden",
-    images_url:["https://www.techradar.com/reviews/dyson-v11"],
+    images_url:["https://cdn.mos.cms.futurecdn.net/M6hh2ft35gHMKAnEZBfFGZ-1920-80.jpg.webp"],
     description: "Cordless stick vacuum, all accessories included. Filter cleaned, well-maintained, minor scratches from use.",
     price: 20000,
     quantity: 1,
@@ -101,7 +101,7 @@ const products = [
   {
     title: "Wilson Tennis Racket",
     category: "Sporting Goods",
-    images_url:["https://www.racquetpoint.com/collections/wilson-tennis-racquets"],
+    images_url:["https://images.unsplash.com/photo-1560012057-4372e14c5085?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlbm5pcyUyMHJhY2tldHxlbnwwfHwwfHx8MA%3D%3D"],
     description: "Strung, grip replaced. Some paint chips, structurally solid, includes cover.",
     price: 7000,
     quantity: 9,
@@ -112,7 +112,7 @@ const products = [
     dimensions: { length: 55.63, width: 58.2, height: 9.92 },
     weight: 17.08,
     material: "Graphite composite",
-    color: "Red",
+    color: "Yellow",
     original_packaging: true,
     manual_included: false,
     working_condition: "Lightly used, good condition"
@@ -120,7 +120,7 @@ const products = [
   {
     title: "Seiko 5 Automatic Watch",
     category: "Jewelry & Watches",
-    images_url:["https://www.reddeerwatches.com/brands/seiko/seiko-5-automatic-men/"],
+    images_url:["https://www.watchportal.com.ph/cdn/shop/files/seiko-snk615k1-automatic-silver-stainless-steel-watch-for-men-watchportal-ph.jpg?v=1697124541&width=400"],
     description: "38mm case, mechanical movement. Few surface scratches, runs accurately.",
     price: 8000,
     quantity: 8,
@@ -139,7 +139,7 @@ const products = [
   {
     title: "Pokemon Charizard Holo Card (1st Edition)",
     category: "Collectibles & Art",
-    images_url:["https://www.beckett.com/news/1999-pokemon-1st-edition-charizard-holo-sells-50000/"],
+    images_url:["https://beckett-www.s3.amazonaws.com/news/news-content/uploads/2017/08/1999-Pokemon-Game-1st-Edition-Holo-Charizard-BGS-10-PWCC-Aug-2017-Front.jpg"],
     description: "Original, lightly played, holographic finish. Edges may show minor wear.",
     price: 9000,
     quantity: 10,
@@ -158,7 +158,7 @@ const products = [
   {
     title: "Johnson's Baby Shampoo",
     category: "Other Categories",
-    images_url:["https://www.johnsonsbaby.in/baby-products/johnsons-baby-shampoo"],
+    images_url:["https://images.ctfassets.net/aub2fvcyp2t8/39tZXffnAfykKscf9zj3o2/15b26ae4328b9a8b6065ea78490bb1f5/nmt_image_1_new-hi-in?fm=webp&w=1024"],
     description: "500ml, sealed, recent manufacturing date, expiry verified.",
     price: 150,
     quantity: 16,
@@ -177,7 +177,7 @@ const products = [
     {
     title: "BMW 3 Series Alloy Wheel",
     category: "Motors",
-    images_url:["https://route66dublin.ie/product/17-inch-bmw-3-series-alloy-wheels/"],
+    images_url:["https://route66dublin.ie/wp-content/uploads/2023/05/20230325_082519_1683972059.jpg"],
     description: "Genuine BMW, 17' diameter. Minor scratches, not bent, clean hub.",
     price: 20000,
     quantity: 10,
@@ -196,7 +196,7 @@ const products = [
   {
     title: "Sony PlayStation 5 Console",
     category: "Electronics",
-    images_url:["https://www.tweaktown.com/news/107521/sony-is-releasing-a-new-ps5-console-but-its-a-downgrade/index.html"],
+    images_url:["https://wallpapers.com/images/high/ps5-pictures-59ev5t1kpebtafu1.webp"],
     description: "PS5 Disc Edition, with controller, cables, and original box. Minor marks, fully functional.",
     price: 50000,
     quantity: 10,
@@ -215,7 +215,7 @@ const products = [
   {
     title: "Adidas Ultraboost Running Shoes (UK 9)",
     category: "Clothing & Accessories",
-    images_url:["https://www.amazon.co.uk/adidas-ultraboost/s?k=adidas+ultraboost"],
+    images_url:["https://www.solereview.com/wp-content/uploads/2022/01/adidas_Ultraboost_22_side-view.jpg"],
     description: "UK size 9. Clean, no major sole wear.",
     price: 7500,
     quantity: 1,
@@ -234,7 +234,7 @@ const products = [
   {
     title: "Restaurant Grade Espresso Machine",
     category: "Business & Industrial",
-    images_url:["https://us.amazon.com/commercial-grade-espresso-machine/s?k=commercial+grade+espresso+machine"],
+    images_url:["https://m.media-amazon.com/images/I/71e4PRs5sWL.__AC_SX300_SY300_QL70_FMwebp_.jpg"],
     description: "2-group head, semi-automatic. Serviced, includes portafilter and accessories.",
     price: 50000,
     quantity: 3,
@@ -253,7 +253,7 @@ const products = [
   {
     title: "Char-Broil Gas Grill",
     category: "Home & Garden",
-    images_url:["https://www.amazon.com/Char-Broil-463655621-Performance-TRU-Infrared-2-Burner/dp/B08HJN2SC5"],
+    images_url:["https://m.media-amazon.com/images/I/515zbq8lNjL._AC_SX679_.jpg"],
     description: "4 burners, ignition system working. Grease tray cleaned, includes cover.",
     price: 20000,
     quantity: 1,
@@ -272,7 +272,7 @@ const products = [
   {
     title: "Wilson Tennis Racket",
     category: "Sporting Goods",
-    images_url:["https://www.amazon.com/stores/WilsonSportingGoods/page/CB4837AB-B65B-4F2D-AC3F-A28A82B7DEBB"],
+    images_url:["https://images.unsplash.com/photo-1560012057-4372e14c5085?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlbm5pcyUyMHJhY2tldHxlbnwwfHwwfHx8MA%3D%3D"],
     description: "Strung, grip replaced. Some paint chips, structurally solid, includes cover.",
     price: 6000,
     quantity: 2,
@@ -291,7 +291,7 @@ const products = [
   {
     title: "Pandora Silver Charm Bracelet",
     category: "Jewelry & Watches",
-    images_url:["https://www.etsy.com/market/pandora_charm_bracelet"],
+    images_url:["https://i.etsystatic.com/58017865/r/il/b0873c/7129807215/il_1588xN.7129807215_580k.jpg"],
     description: "19cm, semi-polished, minor wear.",
     price: 5000,
     quantity: 5,
@@ -310,7 +310,7 @@ const products = [
   {
     title: "Rare US Silver Dollar 1921",
     category: "Collectibles & Art",
-    images_url:["https://www.etsy.com/uk/market/1921_silver_dollar"],
+    images_url:["https://i.etsystatic.com/22659270/c/2062/2062/517/346/il/4f6f97/7163993156/il_600x600.7163993156_iwhw.jpg"],
     description: "Morgan, circulated. Visible details, modest wear, not cleaned.",
     price: 11000,
     quantity: 7,
@@ -329,7 +329,7 @@ const products = [
   {
     title: "Acoustic Guitar Yamaha F310",
     category: "Other Categories",
-    images_url:["https://tmw.com.sg/product/yamaha-f310-acoustic-guitar/"],
+    images_url:["https://images.musicstore.de/images/0640/yamaha-f310-acoustic-guitar_1_GIT0000613-001.jpg"],
     description: "Reliable, full-sized acoustic guitar ideal for beginners and intermediate players. Features a spruce top for a bright, resonant tone and rosewood fingerboard for smooth playability. Slightly reduced body depth for comfortable handling. Known for excellent intonation and durability. Typically sold without a case or stand",
     price: 7000,
     quantity: 18,
@@ -348,7 +348,7 @@ const products = [
   {
   title: "Ray-Ban Wayfarer Sunglasses",
   category: "Accessories",
-  images_url: ["https://www.eyebuydirect.com/brands/ray-ban/wayfarer"],
+  images_url: ["https://img.ebdcdn.com/product/frame/gray/luspl00477_0.jpg?q=85&im=Resize,width=640,height=320,aspect=fill;UnsharpMask,sigma=1.0,gain=1.0"],
   description: "Classic Ray-Ban Wayfarer sunglasses. Iconic design with durable acetate frame and UV-protective lenses. Slight scratches on frame, lenses immaculate.",
   price: 5200,
   quantity: 8,
@@ -367,7 +367,7 @@ const products = [
   {
     title: "Apple iPhone 13 Pro Max (128GB)",
     category: "Electronics",
-    images_url:["https://www.att.com/buy/phones/apple-iphone-13-pro-max-512gb-alpine-green-eol.html"],
+    images_url:["https://www.att.com/scmsassets/global/devices/phones/apple/apple-iphone-13-pro-max/Carousel/alpinegreen/AlpineGreen-1.png"],
     description: "128GB, unlocked, box and charger. Display clean, battery health over 85%.",
     price: 70000,
     quantity: 1,
@@ -386,7 +386,7 @@ const products = [
   {
     title: "Nike Air Jordan 1 Retro High OG",
     category: "Clothing & Accessories",
-    images_url:["https://ebay.com/itm/405855685986"],
+    images_url:["https://http2.mlstatic.com/D_NQ_NP_2X_771065-MLM91424575331_092025-F.webp"],
     description: "US size 10. Collector’s model, minimal creasing, original box if available.",
     price: 27000,
     quantity: 7,
@@ -405,7 +405,7 @@ const products = [
   {
   title: "Bosch PS31-2A 12V Max 3/8 Inch Drill/Driver Kit",
   category: "Business & Industrial",
-  images_url: ["https://www.amazon.com/Bosch-PS31-2A-12-Volt-Lithium-Ion-Batteries/dp/B073RZMSBX"],
+  images_url: ["hhttps://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/default/dwc0716aa4/images/images/catalog/product/000346441055/bosch-12v-max-38-inch-drill-driver-kit-ps31-2a.jpg?sw=380"],
   description: "Bosch PS31-2A 12V Max cordless drill/driver kit, includes (2) 2Ah batteries, charger, and carrying case. Lightweight, variable speed, and ideal for DIY tasks or professional use.",
   price: 9500,
   quantity: 10,
@@ -424,7 +424,7 @@ const products = [
   {
     title: "IKEA Wooden Dining Table",
     category: "Home & Garden",
-    images_url:["https://www.nytimes.com/wirecutter/reviews/dining-and-kitchen-tables-we-like-under-1000/"],
+    images_url:["https://www.ikea.com/us/en/images/products/haegernaes-table-and-4-chairs-antique-stain-pine__1350925_pe951817_s5.jpg?f=xl"],
     description: "180x90cm, 4-seater, light stains, legs sturdy, minimal wobble.",
     price: 9000,
     quantity: 8,
@@ -443,7 +443,7 @@ const products = [
   {
     title: "Callaway Golf Driver (Epic Flash, Regular Flex)",
     category: "Sporting Goods",
-    images_url:["https://www.golfclubs4cash.co.uk/pages/callaway-epic-driver"],
+    images_url:["https://cdn.shopify.com/s/files/1/0559/0450/1875/files/epic.jpg?v=1738159077"],
     description: "Standard loft, regular flex shaft. Clubface clean, minor scuffs.",
     price: 12000,
     quantity: 13,
@@ -462,7 +462,7 @@ const products = [
   {
     title: "Tiffany & Co. Diamond Ring",
     category: "Jewelry & Watches",
-    images_url:["https://www.joden.com/wp/tiffany--co-diamond-solitaire-engagement-ring"],
+    images_url:["https://di2ponv0v5otw.cloudfront.net/posts/2025/09/05/68bbb74da255405e5c698252/m_wp_68bbb751c71ba131b69fe6c3.webp"],
     description: "Classic solitaire, certified. Size 6.5 (US), includes box and papers.",
     price: 85000,
     quantity: 4,
@@ -481,8 +481,8 @@ const products = [
   {
     title: "Vintage Star Wars Action Figure",
     category: "Collectibles & Art",
-    images_url:["https://www.etsy.com/uk/market/kenner_toys_70s"],
-    description: "1970s ,1980s Kenner figure, includes original accessories. Limbs tight, paint mostly intact.",
+    images_url:["https://m.media-amazon.com/images/I/7102FwKRfAS.__AC_SX300_SY300_QL70_FMwebp_.jpg"],
+    description: "Figures, includes original accessories. Limbs tight, paint mostly intact.",
     price: 9000,
     quantity: 7,
     condition: "New",
@@ -500,7 +500,7 @@ const products = [
   {
     title: "Olay Regenerist Face Cream",
     category: "Home and Lifestyle",
-    images_url:["https://www.nanamall.com/collections/moisturizers/products/olay-regenerist-whip-face-moisturizer-48g-red"],
+    images_url:["https://www.nanamall.com/cdn/shop/files/olay-regenerist-micro-sculpting-cream-50g-416214.jpg?v=1750064836&width=800"],
     description: "50g, sealed, batch date visible, genuine product.",
     price: 900,
     quantity: 14,
@@ -519,7 +519,7 @@ const products = [
   {
   title: "Disney Tsum Tsum Plush (Mickey Mouse)",
   category: "Toys & Collectibles",
-  images_url: ["https://www.ebay.com/itm/143863771077"],
+  images_url: ["https://i.ebayimg.com/images/g/V2QAAOSwIABcQ7Tl/s-l960.webp"],
   description: "Official Disney Tsum Tsum Minnie Mouse plush. Super soft, stackable, and irresistibly cute—perfect for any toy collection or as a desk buddy.",
   price: 650,
   quantity: 10,
@@ -538,7 +538,7 @@ const products = [
   {
     title: "Samsung Galaxy Watch 5",
     category: "Electronics",
-    images_url:["https://www.gsmarena.com/samsung_galaxy_watch5-11748.php"],
+    images_url:["https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-watch5.jpg"],
     description: "44mm Bluetooth model, charger included. Display scratch-free; band sanitized.",
     price: 13000,
     quantity: 17,
@@ -557,7 +557,7 @@ const products = [
   {
     title: "North Face Winter Jacket",
     category: "Clothing & Accessories",
-    images_url:["https://www.amazon.com/Mens-North-Face-Winter-Coat/s?k=Men%27s+North+Face+Winter+Coat"],
+    images_url:["https://m.media-amazon.com/images/I/61MVf0AxF9L._AC_SX679_.jpg"],
     description: "Men’s Large, hooded, insulated jacket. Minor wear, washed and clean.",
     price: 7500,
     quantity: 2,
@@ -576,7 +576,7 @@ const products = [
   {
     title: "Levi's Women's Jeans",
     category: "Women's Clothing",
-    images_url:["https://www.mandmdirect.com/01/womens/levis/jeans"],
+    images_url:["https://resources.mandmdirect.com/Images/_default/l/v/3/lv33364_1_cloudzoom.jpg"],
     description: "Levi’s Women’s 712 Slim Fit Jeans in dark blue with classic five-pocket styling. Waist 28, Inseam 30 inches",
     price: 1800,
     quantity: 1,
@@ -595,7 +595,7 @@ const products = [
   {
     title: "Philips Air Fryer XXL",
     category: "Home & Garden",
-    images_url:["https://www.nellaonline.com/products/philips-premium-xxl-air-fryer-hd9650-96"],
+    images_url:["https://www.nellaonline.com/cdn/shop/products/HD965096img6_710x710.jpg?v=1661284640"],
     description: "Large capacity air fryer, 6–7L. All functions tested, basket cleaned, minimal cosmetic damage.",
     price: 9500,
     quantity: 12,
@@ -614,7 +614,7 @@ const products = [
   {
     title: "Callaway Golf Driver",
     category: "Sporting Goods",
-    images_url:["https://golfroots.com/collections/callaway-drivers"],
+    images_url:["https://golfroots.com/cdn/shop/files/SMW7991_a4053f2c-6c2b-4d99-bb87-32132ecccf3a.jpg?v=1752224872&width=800"],
     description: "Standard loft, regular flex shaft. Clubface clean, minor scuffs.",
     price: 13500,
     quantity: 12,
@@ -633,7 +633,7 @@ const products = [
   {
     title: "Rolex Submariner Watch",
     category: "Jewelry & Watches",
-    images_url:["https://teddybaldassarre.com/blogs/watches/rolex-submariner"],
+    images_url:["https://cdn.shopify.com/s/files/1/0278/9723/3501/files/Rolex-Submariner-original-1953-2_b9562e31-d954-474c-ad5b-eee9b1593562.jpg?v=1695136014"],
     description: "40mm case, with box and papers. Minimal wear, serviced recently.",
     price: 155000,
     quantity: 20,
@@ -652,7 +652,7 @@ const products = [
   {
     title: "Michael Jordan Rookie Card",
     category: "Collectibles & Art",
-    images_url:["https://www.amazon.com/Michael-Jordan-Rookie/s?k=Michael+Jordan+Rookie"],
+    images_url:["https://m.media-amazon.com/images/I/61J5LM79RtL.__AC_SX342_SY445_QL70_FMwebp_.jpg"],
     description: "1986 Fleer #57, ungraded. Minor corner wear, no creases.",
     price: 2000,
     quantity: 3,
@@ -671,7 +671,7 @@ const products = [
   {
     title: "LEGO Star Wars Millennium Falcon",
     category: "Other Categories",
-    images_url:["https://www.etsy.com/search/vintage?q=millennium+falcon"],
+    images_url:["https://i.etsystatic.com/10854630/r/il/f5b231/6705807980/il_1588xN.6705807980_pl63.jpg"],
     description: "1970s Kenner figure, includes original accessories. Limbs tight, paint mostly intact.",
     price: 18000,
     quantity: 8,
@@ -690,7 +690,7 @@ const products = [
   {
     title: "BMW 3 Series Alloy Wheel",
     category: "Motors",
-    images_url:["https://www.bmautosport.co.uk/id-5739"],
+    images_url:["https://www.bmautosport.co.uk/images/products/8243/24615/600x600/id-5739.jpg"],
     description: "Genuine BMW 3 Series 17-inch aluminum alloy wheel. Refurbished with light scuffs, structurally sound and ready for use.",
     price: 15000,
     quantity: 13,
@@ -708,7 +708,7 @@ const products = [
   {
     title: "Samsung Galaxy Watch 5",
     category: "Electronics",
-    images_url:["https://www.tomsguide.com/reviews/samsung-galaxy-watch-5"],
+    images_url:["https://cdn.mos.cms.futurecdn.net/FoLJxAyGnyiu8JXUcvtvNE-1437-80.jpg.webp"],
     description: "Samsung Galaxy Watch 5, 44mm aluminum case with Gorilla Glass. Brand new condition, fully functional.",
     price: 15000,
     quantity: 6,
@@ -726,7 +726,7 @@ const products = [
   {
     title: "Coach Leather Handbag",
     category: "Clothing & Accessories",
-    images_url:["https://www.coach.com/shop/women/handbags/totes-carryalls?bagSize=Large&colorVal=Brown"],
+    images_url:["https://coach.scene7.com/is/image/Coach/cp770_b4ydv_a0?$desktopProduct$"],
     description: "Authentic Coach leather handbag, medium size, brown color. New with minor cosmetic imperfections.",
     price: 10000,
     quantity: 18,
@@ -744,7 +744,7 @@ const products = [
   {
     title: "Stainless Steel Commercial Kitchen Sink",
     category: "Business & Industrial",
-    images_url:["https://www.amazon.com/Stainless-Steel-Commercial-Restaurant-Drainboard-Workbench/dp/B0932R7Y9M"],
+    images_url:["https://m.media-amazon.com/images/I/71utqq9I2bL._AC_SX679_.jpg"],
     description: "Durable commercial-grade stainless steel double bowl kitchen sink, refurbished, excellent condition.",
     price: 12000,
     quantity: 19,
@@ -762,7 +762,7 @@ const products = [
   {
     title: "Dyson V11 Vacuum Cleaner",
     category: "Home & Garden",
-    images_url:["https://www.dyson.com/outlet/refurbished-vacuum-cleaners/cordless/v11-torque-drive-nickel-iron-blue"],
+    images_url:["https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/371020-02.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920"],
     description: "Dyson V11 cordless vacuum cleaner, new condition with original packaging and manual.",
     price: 22000,
     quantity: 14,
@@ -780,7 +780,7 @@ const products = [
   {
     title: "Adidas Soccer Ball",
     category: "Sporting Goods",
-    images_url:["https://www.soccergarage.com/balls.html?objects_per_page=299"],
+    images_url:["https://www.soccergarage.com/images/P/image-153.jpg"],
     description: "Adidas size 5 soccer ball with TPU synthetic cover, used but in excellent condition.",
     price: 1500,
     quantity: 12,
@@ -798,7 +798,7 @@ const products = [
   {
     title: "Rolex Submariner Watch",
     category: "Jewelry & Watches",
-    images_url:["https://diamondseast.com/products/rolex-submariner-date-116610-ln-oyster-perpetual"],
+    images_url:["https://diamondseast.com/cdn/shop/products/diamonds-east-intl-rolex-116610ln-rolex-oyster-perpetual-submariner-date-116610-ln-4820396933209_1024x1024.png?v=1623090423"],
     description: "Rolex Submariner stainless steel wristwatch, 40mm, refurbished, fully functional with sapphire crystal.",
     price: 500000,
     quantity: 12,
@@ -816,7 +816,7 @@ const products = [
   {
     title: "Levi's Men's Jeans",
     category: "Men's Clothing",
-    images_url:["https://www.macys.com/shop/b/levi-501-button-fly?id=81269"],
+    images_url:["https://slimages.macysassets.com/is/image/MCY/products/9/optimized/19206779_fpx.tif?qlt=80,0&resMode=sharp2&op_usm=1.75,0.3,2,0&fmt=webp&wid=342&hei=417"],
     description: "This is a listing for pre-owned Levi's men's jeans. Classic straight fit, durable original denim, and distinctive Levi’s branding. Gently used with slight fading and no tears.",
     price: 1800,
     quantity: 1,
@@ -835,7 +835,7 @@ const products = [
   {
     title: "IKEA Wooden Dining Table",
     category: "Home & Garden",
-    images_url:["https://www.ikea.com/ph/en/cat/dining-tables-21825/"],
+    images_url:["https://www.ikea.com/ext/ingkadam/m/62a030885c9f364/original/PE919457.jpg?f=xxs"],
     description: "180x90cm, 6-seater, light stains, legs sturdy, minimal wobble.",
     price: 12000,
     quantity: 1,
@@ -856,7 +856,7 @@ const products = [
     title: "Fujifilm Instax Mini 11 Instant Camera",
     category: "Electronics",
     images_url: [
-      "https://www.adorama.com/fjim11iw.html"
+      "https://www.adorama.com/images/Large/FJIM11IW.jpg"
     ],
     description: "Fujifilm Instax Mini 11 instant camera for instant photo prints. Compact, stylish, and easy to use.",
     price: 6500,
@@ -877,7 +877,7 @@ const products = [
     title: "Jellyfish Night Light Projection Lamp",
     category: "Home & Garden",
     images_url: [
-      "https://www.spacemanlight.com/p/jellyfish-ocean-projection-lamp/"],
+      "https://www.spacemanlight.com/wp-content/uploads/2024/09/jellyfish-ocean-projection-lamp02.jpg-768x768.webp"],
     description: "Cute jellyfish-themed night lamp that projects soothing patterns. Ideal for bedrooms or cozy corners.",
     price: 1200,
     quantity: 15,
@@ -896,7 +896,7 @@ const products = [
     title: "Camlin Colour Pen Pencil Set",
     category: "Office Supplies",
     images_url: [
-      "https://www.flipkart.com/camlin-colour-pen-pencil-12-shades/p/itmf9de3pzncymsk"],
+      "https://rukminim2.flixcart.com/image/832/832/jmp79u80/art-set/t/t/4/colour-pen-pencil-set-of-12-camlin-original-imaf9gmnyxzfxnda.jpeg?q=70&crop=false"],
     description: "Set of 12 pastel-colored pen pencils with smooth flow. Perfect for journaling and office use.",
     price: 800,
     quantity: 25,
@@ -915,7 +915,7 @@ const products = [
     title: "Succulent Plant in Ceramic Pot",
     category: "Home Decor",
     images_url: [
-      "https://www.pinterest.com/jonalynnaomi/ceramic-succulent-pots/"],
+      "https://i.pinimg.com/1200x/01/37/f2/0137f27860f6426e88064208dde7ad9e.jpg"],
     description: "Real succulent plant in white ceramic pot. Low maintenance and perfect for desk or room decor.",
     price: 900,
     quantity: 3,
@@ -933,7 +933,7 @@ const products = [
   {
     title: "Adult Coloring Book with 50 Designs",
     category: "Books & Stationery",
-    images_url: ["https://www.amazon.com/Adult-Coloring-Book-Designs-Intricate/dp/1523616121"],
+    images_url: ["https://m.media-amazon.com/images/I/61QmuLr6XiL._AC_UY327_FMwebp_QL65_.jpg"],
     description: "A beautifully designed adult coloring book featuring 50 unique mandala and nature patterns.",
     price: 600,
     quantity: 30,
@@ -949,5 +949,5 @@ const products = [
     working_condition: "New"
   }
 ]
+module.exports = { data: products};
 
-module.exports = { data: products };
