@@ -36,28 +36,18 @@ app.get("/new", (req, res) => {
 });
 
 // Handle creation (POST /listings)
+
 app.post("/listings", async (req, res) => {
-    const { title, description, price, images } = req.body;
-
-    if (!title || !description || !price) {
-        return res.status(400).send("All fields are required");
-    }
-
-    try {
-        const newListing = new Listing({
-            title,
-            description,
-            price,
-            images: images && Array.isArray(images) ? images : [images]
-        });
-
-        await newListing.save();
-        res.redirect("/listings");
-    } catch (err) {
-        console.error("Error creating listing:", err);
-        res.status(500).send("Internal Server Error");
-    }
-});
+        try {
+            const newlisting = new Listing(req.body.Listing);
+            await newlisting.save();
+            console.log(newlisting);
+            res.redirect("/listings");
+        } catch (err) {
+            console.error("Error creating listing", err);
+            res.status(500).send("Internal Server Error");
+        }
+    });
 
 // -------------------- UPDATE -------------------- //
 

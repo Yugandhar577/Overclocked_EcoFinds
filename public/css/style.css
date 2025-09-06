@@ -1,0 +1,207 @@
+/* ---------- General ---------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ---------- Containers ---------- */
+.container,
+form,
+.login-container,
+.signup-container {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* ---------- Headings ---------- */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+/* ---------- Logo Placeholder ---------- */
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #888;
+}
+
+/* ---------- Forms ---------- */
+form .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: #444;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+    outline: none;
+}
+
+form input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* ---------- Buttons ---------- */
+form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2575fc;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #1a5ed8;
+    transform: translateY(-2px);
+}
+
+/* ---------- Links ---------- */
+a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Cards (Listings) ---------- */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #666;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-footer {
+    background-color: #f7f7f7;
+    border-top: 1px solid #e1e1e1;
+    padding: 0.75rem 1rem;
+}
+
+.card-footer p {
+    margin-bottom: 0.25rem;
+}
+
+.text-muted {
+    font-size: 1rem;
+    color: #888;
+}
+
+/* ---------- Grid ---------- */
+.row {
+    margin-top: 1rem;
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 150px;
+    }
+
+    .container,
+    form,
+    .login-container,
+    .signup-container {
+        padding: 1.5rem;
+    }
+
+    .logo-placeholder {
+        width: 70px;
+        height: 70px;
+    }
+}
