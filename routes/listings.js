@@ -150,5 +150,28 @@ app.get("/about", (req, res) => {
     res.render("listings/about");
 });
 
+// Search Listings
+app.get("/search", async (req, res) => {
+  const { query } = req.query;
+
+  try {
+    if (!query) {
+      return res.render("listings/searchResults", { listings: [], query: "" });
+    }
+
+    const listings = await Listing.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } }
+      ]
+    });
+
+    res.render("listings/searchResults", { listings, query });
+  } catch (err) {
+    console.error("Error searching listings:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 
 module.exports = app;
