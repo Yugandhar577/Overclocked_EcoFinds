@@ -1,0 +1,35 @@
+<%- include("../includes/navbar.ejs") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4">My Purchases</h2>
+
+    <% if (purchases && purchases.length > 0) { %>
+        <% purchases.forEach(function(purchase) { %>
+            <div class="row mb-4 align-items-center border p-3 rounded">
+                <!-- Product Image -->
+                <div class="col-md-3">
+                    <img src="<%= purchase.image || '/images/product-placeholder.png' %>" 
+                         class="img-fluid rounded" alt="<%= purchase.title %>" 
+                         style="height:150px; object-fit:cover; width:100%;">
+                </div>
+
+                <!-- Product Details -->
+                <div class="col-md-7">
+                    <h5><%= purchase.title %></h5>
+                    <p><strong>Price:</strong> ₹<%= purchase.price %></p>
+                    <p><strong>Quantity Purchased:</strong> <%= purchase.quantity %></p>
+                    <p><strong>Purchased On:</strong> <%= purchase.purchaseDate %></p>
+                </div>
+
+                <!-- Actions -->
+                <div class="col-md-2 text-center">
+                    <a href="/product/<%= purchase.id %>" class="btn btn-sm btn-outline-primary w-100">View Product</a>
+                </div>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>You have not purchased any products yet. <a href="/listings">Browse Products</a></p>
+    <% } %>
+</div>
+
+<%- include("../includes/footer.ejs") %>
