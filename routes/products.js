@@ -100,4 +100,44 @@ app.post("/:id/delete", async (req, res) => {
     }
 });
 
+
+// -------------------- INDEX + SORT -------------------- //
+
+// All products (with sorting support)
+app.get("/", async (req, res) => {
+    try {
+        let sortOption = {};
+        const { sort } = req.query;
+
+        if (sort === "price_low_high") {
+            sortOption = { price: 1 }; // ascending
+        } else if (sort === "price_high_low") {
+            sortOption = { price: -1 }; // descending
+        } else {
+            sortOption = { createdAt: -1 }; // latest by default (assuming schema has timestamps)
+        }
+
+        const listings = await Listing.find({}).sort(sortOption);
+        res.render("listings/index", { listings });
+    } catch (err) {
+        console.error("Error fetching products:", err);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+// -------------------- SEARCH -------------------- //
+
+app.get("/search", async (req, res) => {
+    const { q } = req.query;
+    try {
+        const listings = await Listing.find({
+            name: { $regex: q, $options: "i" } // case-insensitive search
+        });
+        res.render("listings/search", { listings, query: q });
+    } catch (err) {
+        console.error("Error searching products:", err);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 module.exports = app;
