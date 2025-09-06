@@ -11,12 +11,6 @@ app.get("/login", (req, res) => {
 });
 
 // Render signup page
-app.get("/signup", (req, res) => {
-    res.render("auth/signUp");
-});
-
-// -------------------- POST ROUTES -------------------- //
-
 // Handle signup
 app.post("/signup", async (req, res) => {
     const { name, userId, email, password } = req.body;
@@ -26,16 +20,13 @@ app.post("/signup", async (req, res) => {
     }
 
     try {
-        // Check if userId or email already exists
         const existingUser = await User.findOne({ $or: [{ email }, { userId }] });
         if (existingUser) {
             return res.status(400).send("UserId or email already exists");
         }
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create new user
         const user = new User({
             name,
             userId,
@@ -45,7 +36,6 @@ app.post("/signup", async (req, res) => {
 
         await user.save();
 
-        // Start session
         req.session.userId = user._id;
 
         res.redirect("/listings/index");
