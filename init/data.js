@@ -2,7 +2,7 @@ const products = [
   {
     title: "Ford F-150 Headlight Assembly",
     category: "Motors",
-    images_url:["https://www.amazon.com/ford-f150-headlights/s?k=ford+f150+headlights"],
+    images_url:["https://m.media-amazon.com/images/I/815Rf7rHt+L._AC_SX466_PIbundle-2,TopRight,0,0_SH20_.jpg"],
     description: "OEM or aftermarket unit, fits 2015–2020 Ford F-150. Clear lens, tested and functional. Minor surface wear possible.",
     price: 14000,
     quantity: 4,
@@ -949,4 +949,5 @@ const products = [
     working_condition: "New"
   }
 ]
+
 module.exports = { data: products };
