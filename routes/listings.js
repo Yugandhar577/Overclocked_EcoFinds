@@ -146,4 +146,21 @@ app.get("/search", async (req, res) => {
     }
 });
 
+app.get("/myListings", async (req, res) => {
+    try {
+        // Assuming req.user._id holds the logged-in user’s ID (e.g., from Passport.js)
+        const userId = req.user ? req.user._id : null;
+
+        if (!userId) {
+            return res.redirect("/login"); // redirect to login if not logged in
+        }
+
+        const myListings = await Listing.find({ createdBy: userId });
+        res.render("listings/myListings", { listings: myListings });
+    } catch (err) {
+        console.error("Error fetching user listings:", err);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 module.exports = app;
