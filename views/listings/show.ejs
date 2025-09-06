@@ -1,0 +1,48 @@
+<%- include('../includes/navbar') %>
+
+<h1><%= product.title %></h1>
+<h3>Price: ₹<%= product.price %></h3>
+
+<!-- Main product image -->
+<img src="<%= Array.isArray(product.images_url) ? product.images_url[0] : product.images_url %>" alt="<%= product.title %>" width="400">
+
+<!-- Scrollable images -->
+<div style="display: flex; overflow-x: auto; gap: 10px; margin-top: 10px;">
+    <% if (Array.isArray(product.images_url)) { %>
+        <% product.images_url.forEach(img => { %>
+            <img src="<%= img %>" alt="Product Image" width="100" style="cursor: pointer;" onclick="document.querySelector('img[alt=\'<%= product.title %>\']').src='<%= img %>'">
+        <% }) %>
+    <% } %>
+</div>
+
+<!-- Product details -->
+<div>
+    <p><strong>Description:</strong> <%= product.description || 'N/A' %></p>
+    <p><strong>Brand:</strong> <%= product.brand || 'N/A' %></p>
+    <p><strong>Model:</strong> <%= product.model || 'N/A' %></p>
+    <p><strong>Year of Manufacture:</strong> <%= product.year_of_manufacture || 'N/A' %></p>
+    <p><strong>Condition:</strong> <%= product.condition || 'N/A' %></p>
+    <p><strong>Color:</strong> <%= product.color || 'N/A' %></p>
+    <p><strong>Material:</strong> <%= product.material || 'N/A' %></p>
+    <p><strong>Weight:</strong> <%= product.weight || 'N/A' %></p>
+    <% if (product.dimensions) { %>
+        <p><strong>Dimensions:</strong>
+            L: <%= product.dimensions.length || '-' %>,
+            W: <%= product.dimensions.width || '-' %>,
+            H: <%= product.dimensions.height || '-' %>,
+            D: <%= product.dimensions.diameter || '-' %>,
+            Waist: <%= product.dimensions.waist || '-' %>,
+            Inseam: <%= product.dimensions.inseam || '-' %>
+        </p>
+    <% } %>
+    <p><strong>Original Packaging:</strong> <%= product.original_packaging ? 'Yes' : 'No' %></p>
+    <p><strong>Manual Included:</strong> <%= product.manual_included ? 'Yes' : 'No' %></p>
+    <p><strong>Working Condition:</strong> <%= product.working_condition || 'N/A' %></p>
+</div>
+
+<!-- Add to Cart -->
+<form action="/cart/add/<%= product._id %>" method="POST">
+    <button type="submit">Add to Cart</button>
+</form>
+
+<%- include('../includes/footer') %>

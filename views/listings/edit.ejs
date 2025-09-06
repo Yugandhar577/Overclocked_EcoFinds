@@ -1,0 +1,59 @@
+<!-- views/listings/edit.ejs -->
+<%- include('../includes/navbar') %>
+
+<div style="max-width: 600px; margin: 50px auto; font-family: Arial, sans-serif;">
+    <h1>Edit Product</h1>
+
+    <!-- Update Form -->
+    <form action="/products/<%= listing._id %>/edit" method="POST" style="margin-bottom: 30px;">
+        <div>
+            <label>Product Title:</label><br>
+            <input type="text" name="name" value="<%= listing.name %>" required style="width: 100%; padding: 5px;">
+        </div>
+
+        <div style="margin-top: 10px;">
+            <label>Category:</label><br>
+            <select name="category" required style="width: 100%; padding: 5px;">
+                <option value="Electronics" <%= listing.category === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+                <option value="Clothing" <%= listing.category === 'Clothing' ? 'selected' : '' %>>Clothing</option>
+                <option value="Books" <%= listing.category === 'Books' ? 'selected' : '' %>>Books</option>
+                <option value="Others" <%= listing.category === 'Others' ? 'selected' : '' %>>Others</option>
+            </select>
+        </div>
+
+        <div style="margin-top: 10px;">
+            <label>Description:</label><br>
+            <textarea name="description" rows="4" style="width: 100%; padding: 5px;"><%= listing.description %></textarea>
+        </div>
+
+        <div style="margin-top: 10px;">
+            <label>Price:</label><br>
+            <input type="number" name="price" value="<%= listing.price %>" required style="width: 100%; padding: 5px;">
+        </div>
+
+        <div style="margin-top: 10px;">
+            <label>Image URL:</label><br>
+            <input type="text" name="image" value="<%= listing.image %>" style="width: 100%; padding: 5px;">
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button type="submit" style="padding: 10px 20px; background-color: #8000ff9c; color: white; border: none; cursor: pointer;">
+                Update Product
+            </button>
+        </div>
+    </form>
+
+    <!-- Delete Form -->
+    <form action="/products/<%= listing._id %>/delete" method="POST">
+        <button type="submit" style="padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer;">
+            Delete Product
+        </button>
+    </form>
+
+    <!-- Back Button -->
+    <a href="/products" style="display: inline-block; margin-top: 20px; text-decoration: none; padding: 10px 20px; background-color: #ccc; color: black; cursor: pointer;">
+        Back to Products
+    </a>
+</div>
+
+<%- include('../includes/footer') %>
