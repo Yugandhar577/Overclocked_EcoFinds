@@ -1,31 +1,59 @@
-<nav class="navbar">
-  <div class="nav-container">
-    
-    <!-- Logo at left-most corner -->
-    <a href="/" class="logo">EcoFinds 🌿</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">MyShop</a>
 
-    <!-- Dropdown for location -->
-    <select name="location" class="location-dropdown">
-      <option value="" disabled selected>Select State</option>
-      <option value="Maharashtra">Maharashtra</option>
-      <option value="Karnataka">Karnataka</option>
-      <option value="Tamil Nadu">Tamil Nadu</option>
-      <option value="Delhi">Delhi</option>
-      <option value="Gujarat">Gujarat</option>
-      <!-- Add all other states as needed -->
-    </select>
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarContent" aria-controls="navbarContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- Search bar -->
-    <input type="text" placeholder="Search items..." class="search-bar">
+    <!-- Collapsible Menu -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/listings">My Listings</a></li>
+        <li class="nav-item"><a class="nav-link" href="/add-product">Add Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+      </ul>
+    </div>
 
-    <!-- Wishlist link -->
-    <a href="/wishlist" class="wishlist-link">My Wishlist</a>
+    <!-- Always visible (non-collapsible) -->
+    <div class="d-flex align-items-center">
+      <!-- Wishlist -->
+      <a class="nav-link text-white me-3" href="/wishlist">
+        <i class="bi bi-heart-fill fs-5"></i>
+      </a>
 
-    <!-- Login / Signup -->
-    <a href="/login" class="login-link">Login / Sign Up</a>
+      <!-- Cart -->
+      <a class="nav-link text-white me-3" href="/cart">
+        <i class="bi bi-cart-fill fs-5"></i>
+      </a>
 
-    <!-- Sell / List items -->
-    <a href="/sell" class="sell-link">Sell Items</a>
-    
+      <% if (user) { %>
+        <!-- Profile -->
+        <div class="dropdown me-3">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" 
+             id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="<%= user.profilePic ? user.profilePic : '/images/default-pfp.jpg' %>" 
+                 alt="profile" width="35" height="35" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+            <li><a class="dropdown-item" href="/settings">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+
+        <!-- Logout Icon -->
+        <a class="nav-link text-white" href="/logout">
+          <i class="bi bi-box-arrow-right fs-5"></i>
+        </a>
+      <% } %>
+    </div>
   </div>
 </nav>
