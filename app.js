@@ -23,9 +23,15 @@
     app.engine("ejs", ejsMate);
     app.use(express.static(path.join(__dirname, 'public')));
 
-
-    app.get("/", (req, res) => {
-        res.send("Hello from Express");
+    // login 
+    app.get("/", async (req, res) => {
+        try {
+            const users = await User.find({});
+            res.render("login", { users });
+        } catch (error) {
+            console.error("Error fetching users:", error);
+            res.status(500).send("Internal Server Error");
+        }
     });
 
 
