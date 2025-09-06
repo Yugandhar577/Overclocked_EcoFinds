@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SignUp</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <%- include("navbar") %>
+
+  <h2>Register</h2>
+
+  <div>
+    <!-- Logo Circle Placeholder -->
+    <div>
+      <!-- Replace with logo later -->
+      <p>[LOGO]</p>
+    </div>
+
+    <form action="/signup" method="POST">
+      <!-- Name -->
+      <div>
+        <label for="name">Display Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <button type="Sign Up">Register</button>
+      </div>
+    </form>
+
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+
+</body>
+</html>
