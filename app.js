@@ -15,6 +15,7 @@ const User = require('./models/users');
 const authRoutes = require('./routes/auth');
 const cartRoutes = require('./routes/cart');
 const listingsRoutes = require('./routes/listings');
+const checkoutRoutes = require('./routes/checkout');
 
 // ---------------- MongoDB Connection ----------------
 main().then(() => {
@@ -48,6 +49,12 @@ app.use(session({
 app.use("/auth", authRoutes);
 app.use("/cart", cartRoutes);
 app.use("/listings", listingsRoutes);
+app.use("/checkout", checkoutRoutes);
+
+// ---------------- Home Route ----------------
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 // ---------------- Server ----------------
 app.listen(8080, () => {
