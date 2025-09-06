@@ -5,8 +5,13 @@ const Listing = require("../models/listings");
 // View cart
 router.get("/", async (req, res) => {
     try {
-        // for now, mock cart items
-        const cartItems = await Listing.find({});
+        // Initialize cart if not present
+        if (!req.session.cart) req.session.cart = [];
+
+        const cartItems = await Listing.find({
+            _id: { $in: req.session.cart }
+        });
+
         res.render("listings/cart", { cartItems });
     } catch (err) {
         console.error("Error loading cart:", err);
@@ -20,12 +25,31 @@ router.post("/add/:id", async (req, res) => {
     try {
         const item = await Listing.findById(id);
         if (!item) return res.status(404).send("Item not found");
-        // In real case: req.session.cart.push(item)
+
+        if (!req.session.cart) req.session.cart = [];
+
+        // Add item ID if not already in cart
+        if (!req.session.cart.includes(id)) {
+            req.session.cart.push(id);
+        }
+
         res.redirect("/cart");
     } catch (err) {
         console.error("Error adding to cart:", err);
         res.status(500).send("Internal Server Error");
     }
+});
+
+// Remove item from cart
+router.post("/remove/:id", (req, res) => {
+    const { id } = req.params;
+
+    if (!req.session.cart) req.session.cart = [];
+
+    // Remove the item by filtering out the id
+    req.session.cart = req.session.cart.filter(itemId => itemId !== id);
+
+    res.redirect("/cart");
 });
 
 module.exports = router;
