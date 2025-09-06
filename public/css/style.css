@@ -1,245 +1,428 @@
-/* ---------- Fonts ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ---------- General ---------- */
+/* Define CSS variables for reusability and theming */
+:root {
+    /* Colors */
+    --clr-primary: #667eea;
+    --clr-secondary: #764ba2;
+    --clr-text-primary: #1f2937;
+    --clr-text-secondary: #6b7280;
+    --clr-bg-light: #ffffff;
+    --clr-bg-surface: #f9fafb;
+    --clr-border: #e5e7eb;
+    --clr-focus: #6366f1;
+    --clr-shadow-light: rgba(0, 0, 0, 0.1);
+    --clr-shadow-dark: rgba(0, 0, 0, 0.25);
+    --clr-glass-bg: rgba(255, 255, 255, 0.95);
+    --clr-glass-border: rgba(255, 255, 255, 0.2);
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 2.5rem;
+
+    /* Borders */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+
+    /* Animations */
+    --anim-ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Normalize box-sizing and use hardware acceleration hints */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* General body styling and background */
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--clr-text-primary);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
 }
 
-/* ---------- Containers (Glass Effect) ---------- */
+/* Set basic font and line-height on root for better control with rem units */
+:root {
+    font-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Layout & Containers
+   -------------------------------------------------------------------------- */
+
+/* Glass effect container with centered content */
 .container,
-form,
+.form-card,
 .login-container,
 .signup-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--clr-glass-bg);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2.5rem 2rem;
-    border-radius: 16px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    width: 100%;
+    border: 1px solid var(--clr-glass-border);
+    padding: var(--space-xxl) var(--space-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 25px 50px -12px var(--clr-shadow-dark);
+    width: 95%;
     max-width: 600px;
-    margin: 30px auto;
+    margin: var(--space-xxl) auto;
     text-align: center;
 }
 
-/* ---------- Headings ---------- */
+/* Modern grid for responsive card layouts */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xxl);
+    width: 100%;
+    padding: 0 var(--space-xl);
+    max-width: 1200px;
+    margin: var(--space-xxl) auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography
+   -------------------------------------------------------------------------- */
 h1, h2 {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-lg);
     font-weight: 700;
 }
 
 h1 {
     font-size: 3rem;
-    color: white;
+    color: var(--clr-bg-light);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.05em;
 }
 
 h2 {
     font-size: 1.875rem;
-    color: #374151;
+    color: var(--clr-text-primary);
+    letter-spacing: -0.025em;
 }
 
-/* ---------- Logo Placeholder ---------- */
-.logo-placeholder {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    margin: 0 auto 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: white;
-    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
-    animation: pulse-glow 2s infinite alternate;
-}
-
-/* ---------- Forms ---------- */
-form .form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #374151;
-    font-size: 0.875rem;
-}
-
-form input,
-form textarea,
-form select {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    border: 1px solid #d1d5db;
-    font-size: 1rem;
-    margin-bottom: 10px;
-    background: white;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-form input:focus,
-form textarea:focus,
-form select:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 10px 25px -5px rgba(99, 102, 241, 0.3);
-    outline: none;
-    transform: translateY(-2px);
-}
-
-form input[type="checkbox"] {
-    width: 1rem;
-    height: 1rem;
-    accent-color: #6366f1;
-    margin-right: 0.5rem;
-}
-
-/* ---------- Buttons ---------- */
-form button,
-.btn-gradient {
-    width: 100%;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.39);
-}
-
-form button:hover,
-.btn-gradient:hover {
-    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
-}
-
-/* ---------- Links ---------- */
-a {
-    color: #6366f1;
+/* Links for text */
+.text-link {
+    color: var(--clr-focus);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
-a:hover {
+.text-link:hover {
     color: #4f46e5;
     text-decoration: underline;
 }
 
-/* ---------- Cards (Listings) ---------- */
+/* --------------------------------------------------------------------------
+   4. Components
+   -------------------------------------------------------------------------- */
+
+/* Logo animation */
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
+    margin: 0 auto var(--space-lg);
+    display: grid; /* Use grid for perfect centering */
+    place-items: center;
+    font-weight: bold;
+    color: var(--clr-bg-light);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+    animation: pulse-glow 2s infinite alternate;
+}
+
+/* Card styles with hover effect */
 .card {
-    border-radius: 16px;
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    background-color: #ffffff;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    background-color: var(--clr-bg-light);
+    box-shadow: 0 4px 6px -1px var(--clr-shadow-light);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s var(--anim-ease-out), box-shadow 0.3s ease;
+    will-change: transform; /* Hint to browser for smoother animation */
 }
 
 .card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    box-shadow: 0 25px 50px -12px var(--clr-shadow-dark);
 }
 
+/* Card image for listings */
 .card-img-top {
+    width: 100%;
     height: 256px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--anim-ease-out);
 }
 
-.card-img-top:hover {
+.card:hover .card-img-top {
     transform: scale(1.05);
 }
 
 .card-body {
-    padding: 2rem;
+    padding: var(--space-xl);
+    flex-grow: 1; /* Allow content to fill space */
+    text-align: left;
 }
 
 .card-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 0.75rem;
+    color: var(--clr-text-primary);
+    margin: 0 0 var(--space-sm);
 }
 
 .card-text {
-    font-size: 1.125rem;
-    color: #6b7280;
+    font-size: 1rem;
+    color: var(--clr-text-secondary);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-lg);
 }
 
 .card-footer {
-    background-color: #f9fafb;
-    border-top: 1px solid #e5e7eb;
-    padding: 1rem 2rem;
+    background-color: var(--clr-bg-surface);
+    border-top: 1px solid var(--clr-border);
+    padding: var(--space-md) var(--space-xl);
 }
 
 .card-footer p {
-    margin-bottom: 0.25rem;
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--clr-text-secondary);
 }
 
-.text-muted {
-    color: #6b7280;
+/* Forms */
+.form-group {
+    margin-bottom: var(--space-lg);
+    text-align: left;
 }
 
-/* ---------- Card Grid ---------- */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+.form-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    color: var(--clr-text-primary);
+    font-size: 0.875rem;
 }
 
-/* ---------- Animations ---------- */
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--clr-border);
+    font-size: 1rem;
+    background: var(--clr-bg-light);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    border-color: var(--clr-focus);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--clr-focus) 10%, transparent), 0 10px 25px -5px color-mix(in srgb, var(--clr-focus) 30%, transparent);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--clr-focus);
+    margin-right: var(--space-sm);
+}
+
+/* Buttons */
+.btn-gradient {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
+    color: var(--clr-bg-light);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--anim-ease-out);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--clr-focus) 39%, transparent);
+    text-decoration: none; /* Ensure it works on <a> tags */
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px color-mix(in srgb, var(--clr-focus) 40%, transparent);
+}
+
+/* Accessibility: Visible focus state for keyboard users */
+.btn-gradient:focus-visible,
+.form-input:focus-visible,
+.form-textarea:focus-visible,
+.form-select:focus-visible,
+.text-link:focus-visible {
+    outline: 2px solid var(--clr-focus);
+    outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Animations
+   -------------------------------------------------------------------------- */
 @keyframes pulse-glow {
     0% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
     50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.6); }
     100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
 }
 
-/* ---------- Responsive ---------- */
+/* --------------------------------------------------------------------------
+   6. Responsive & Mobile-First
+   -------------------------------------------------------------------------- */
+
 @media (max-width: 768px) {
-    .card-img-top { height: 220px; }
-    .card-body { padding: 1.5rem; }
-    .card-title { font-size: 1.375rem; }
-    .card-text { font-size: 1rem; }
-    h1 { font-size: 2.5rem; }
-    .row { flex-direction: column; gap: 1.5rem; }
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    .card-img-top {
+        height: 220px;
+    }
+    .card-body {
+        padding: var(--space-lg);
+    }
+    .card-title {
+        font-size: 1.375rem;
+    }
+    .card-text {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    .container,
+    .form-card,
+    .login-container,
+    .signup-container {
+        padding: var(--space-xxl) var(--space-lg);
+    }
 }
 
 @media (max-width: 576px) {
-    .card-img-top { height: 200px; }
-    .container, form, .login-container, .signup-container { padding: 1.5rem; margin: 15px auto; }
-    .logo-placeholder { width: 70px; height: 70px; }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    form input, form textarea, form select { padding: 0.625rem 0.75rem; }
-    .card-body { padding: 1.25rem; }
-    .card-title { font-size: 1.25rem; }
-    .card-text { font-size: 0.95rem; margin-bottom: 1rem; }
-    .card-footer { padding: 0.75rem 1.25rem; }
+    body {
+        justify-content: flex-start;
+    }
+    .container,
+    .form-card,
+    .login-container,
+    .signup-container {
+        padding: var(--space-lg) var(--space-md);
+        margin: var(--space-lg) auto;
+    }
+    .logo-placeholder {
+        width: 70px;
+        height: 70px;
+        margin-bottom: var(--space-md);
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .form-input,
+    .form-textarea,
+    .form-select {
+        padding: 0.625rem var(--space-md);
+    }
+    .card-img-top {
+        height: 180px;
+    }
+    .card-body {
+        padding: var(--space-md);
+    }
+    .card-title {
+        font-size: 1.25rem;
+    }
+    .card-text {
+        font-size: 0.95rem;
+        margin-bottom: var(--space-md);
+    }
+    .card-footer {
+        padding: var(--space-md);
+    }
 }
 
-/* ---------- Dark Mode Support ---------- */
+/* --------------------------------------------------------------------------
+   7. Dark Mode & Accessibility
+   -------------------------------------------------------------------------- */
+
+/* Respect user's dark mode preference */
 @media (prefers-color-scheme: dark) {
-    .glass-effect { background: rgba(17,24,39,0.95); border: 1px solid rgba(255,255,255,0.1); }
-    .card { background-color: #1f2937; }
-    .card-title { color: #f9fafb; }
-    .card-text { color: #d1d5db; }
-    .card-footer { background-color: #374151; border-top: 1px solid #4b5563; }
+    :root {
+        --clr-text-primary: #f9fafb;
+        --clr-text-secondary: #d1d5db;
+        --clr-bg-light: #1f2937;
+        --clr-bg-surface: #374151;
+        --clr-border: #4b5563;
+        --clr-glass-bg: rgba(31, 41, 55, 0.95);
+        --clr-glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+        color: var(--clr-text-secondary);
+    }
+    
+    h1 {
+        color: var(--clr-bg-light); /* Adjusted for contrast on dark bg */
+    }
+
+    .card {
+        background-color: #1f2937;
+    }
+    
+    .card-footer {
+        background-color: #374151;
+        border-top-color: #4b5563;
+    }
+    
+    .card-title {
+        color: #f9fafb;
+    }
+}
+
+/* Reduce motion for users who prefer it, for accessibility */
+@media (prefers-reduced-motion) {
+    .card,
+    .btn-gradient,
+    .card-img-top,
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+        transition: none !important;
+        animation: none !important;
+    }
+    .card:hover,
+    .btn-gradient:hover,
+    .card:hover .card-img-top {
+        transform: none !important;
+        box-shadow: none !important;
+    }
 }
