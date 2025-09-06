@@ -146,4 +146,9 @@ app.get("/myListings", async (req, res) => {
     }
 });
 
+app.get("/about", (req, res) => {
+    res.render("listings/about");
+});
+
+
 module.exports = app;
