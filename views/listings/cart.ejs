@@ -1,0 +1,71 @@
+<%- include('../includes/navbar') %>
+
+<div style="max-width: 900px; margin: 50px auto; font-family: Arial, sans-serif;">
+    <h1>My Cart</h1>
+
+    <!-- Cart Items -->
+    <% if (cartItems && cartItems.length > 0) { %>
+        <% cartItems.forEach(function(item) { %>
+            <div style="display: flex; align-items: center; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+                
+                <!-- Product Image -->
+                <div style="flex: 1; text-align: center;">
+                    <img src="<%= item.image || '/images/product-placeholder.png' %>" 
+                         alt="<%= item.title %>" 
+                         style="max-width: 120px; max-height: 120px; object-fit: contain;">
+                </div>
+
+                <!-- Product Details -->
+                <div style="flex: 3; padding-left: 20px;">
+                    <h4><%= item.title %></h4>
+                    <p><strong>Price:</strong> ₹<%= item.price %></p>
+                    <p><%= item.description %></p>
+
+                    <!-- Quantity Controls -->
+                    <div style="margin-top: 10px; display: flex; align-items: center;">
+                        <form action="/cart/<%= item._id %>/decrease" method="POST" style="margin-right: 10px;">
+                            <button type="submit" style="padding: 5px 10px; background-color: #ccc; border: none; cursor: pointer;">-</button>
+                        </form>
+                        <span style="margin: 0 10px;"><%= item.quantity %></span>
+                        <form action="/cart/<%= item._id %>/increase" method="POST" style="margin-left: 10px;">
+                            <button type="submit" style="padding: 5px 10px; background-color: #ccc; border: none; cursor: pointer;">+</button>
+                        </form>
+                    </div>
+
+                    <!-- Subtotal per item -->
+                    <p style="margin-top: 10px;"><strong>Subtotal:</strong> ₹<%= item.price * item.quantity %></p>
+                </div>
+
+                <!-- Remove Button -->
+                <div style="flex: 1; text-align: right;">
+                    <form action="/cart/<%= item._id %>/remove" method="POST">
+                        <button type="submit" style="padding: 8px 15px; background-color: red; color: white; border: none; cursor: pointer;">
+                            Remove
+                        </button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+
+        <!-- Cart Summary -->
+        <div style="border: 2px solid #000; padding: 20px; border-radius: 10px; margin-top: 30px;">
+            <h3>Order Summary</h3>
+            <p><strong>Subtotal:</strong> ₹<%= subtotal %></p>
+            <p><strong>GST (18%):</strong> ₹<%= gst %></p>
+            <p><strong>Delivery Charges:</strong> ₹<%= deliveryCharges %></p>
+            <hr>
+            <h4>Total Amount: ₹<%= total %></h4>
+
+            <!-- Checkout -->
+            <form action="/checkout" method="POST" style="margin-top: 20px;">
+                <button type="submit" style="padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer;">
+                    Proceed to Checkout
+                </button>
+            </form>
+        </div>
+    <% } else { %>
+        <p>Your cart is empty. <a href="/listings">Start shopping</a></p>
+    <% } %>
+</div>
+
+<%- include('../includes/footer') %>
