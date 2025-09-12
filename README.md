@@ -108,3 +108,8 @@ This project is licensed under the **MIT License**.
 
 * Inspired by sustainable e-commerce platforms
 * Built for hackathon/learning purposes
+
+
+## to do
+* work on the styling 
+*add proper server side err handling 
