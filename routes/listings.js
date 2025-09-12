@@ -28,26 +28,11 @@ app.get("/listings/:id", async (req, res) => {
     }
 });
 
-// -------------------- CREATE -------------------- //
-
+//--------------------- CREATE -------------------- //
 // Form (GET /listings/new)
-app.get("/new", (req, res) => {
-    res.render("listings/new");
+app.get("/new", (req, res) => { 
+    res.render("listings/new"); 
 });
-
-// Handle creation (POST /listings)
-
-app.post("/listings", async (req, res) => {
-        try {
-            const newlisting = new Listing(req.body.Listing);
-            await newlisting.save();
-            console.log(newlisting);
-            res.redirect("/listings");
-        } catch (err) {
-            console.error("Error creating listing", err);
-            res.status(500).send("Internal Server Error");
-        }
-    });
 
 // -------------------- UPDATE -------------------- //
 

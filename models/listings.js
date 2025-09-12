@@ -41,4 +41,4 @@ const ProductSchema = new mongoose.Schema({
   owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model('listing', ProductSchema);

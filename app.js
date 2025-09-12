@@ -6,6 +6,8 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 
 // Models
 const Listing = require('./models/listings');
@@ -34,8 +36,11 @@ app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsMate);
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(session({
     secret: "ecoFindsSecretKey",
@@ -55,6 +60,68 @@ app.use("/checkout", checkoutRoutes);
 app.get("/", (req, res) => {
     res.redirect("/listings");
 });
+
+// needto set up a middleware for the login process to check if the user is logged in before accessing certain routes
+
+// -------------------- CREATE -------------------- //
+
+// Handle creation (POST /listings)
+app.post("/listings", async (req, res) => {
+  try {
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    console.log("New listing saved:", newListing);
+    res.redirect("/listings"); 
+  } catch (err) {
+    console.error("Error creating listing:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
+// Handle signup
+app.post("/users", async (req, res) => {
+    try {
+        const saveduser = new User(req.body.user);
+        const savedUser = await saveduser.save();
+        req.session.userId = savedUser._id;
+        res.redirect("/listings");
+    } catch (error) {
+        console.error("Error signing up:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+// Handle login
+app.post("/login", async (req, res) => {
+    const { loginId, password } = req.body; // loginId can be email
+
+    if (!loginId || !password) {
+        return res.status(400).send("All fields are required");
+    }
+
+    try {
+        // Find user by email
+        const user = await User.findOne({ email: loginId });
+        if (!user) {
+            return res.status(400).send("User not found. Please sign up first.");
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).send("Invalid credentials");
+        }
+
+        // Start session
+        req.session.userId = user._id;
+
+        res.redirect("/dashboard");
+    } catch (error) {
+        console.error("Error logging in:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 
 // ---------------- Server ----------------
 app.listen(8080, () => {
