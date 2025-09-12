@@ -8,6 +8,8 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const wrapAsync = require('./utils/wrapAsync');
+const ExpressError = require('./utils/expressError');
 
 // Models
 const Listing = require('./models/listings');
@@ -122,6 +124,16 @@ app.post("/login", async (req, res) => {
     }
 });
 
+// error handler
+app.all("*", (req, res, next) => {
+    next(new ExpressError("Page Not Found", 404));
+});
+
+app.use((err, req, res, next) => {
+    let {statusCode=500, message="Something went wrong!"} = err;
+    // res.status(statusCode).send(message);
+    res.render("error.ejs", { statusCode, message });
+});
 
 // ---------------- Server ----------------
 app.listen(8080, () => {
