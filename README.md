@@ -111,5 +111,5 @@ This project is licensed under the **MIT License**.
 
 
 ## to do
-* work on the styling // Take inspiration from MongoDB Website's UI ^*
-*add proper server side err handling 
+* work on the styling // Take inspiration from MongoDB Website's UI
+* add proper server side err handling 
